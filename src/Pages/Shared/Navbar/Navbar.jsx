@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import logo from '../../../assets/logo-2.png'
 const Navbar = () => {
-    const user = 'yasin';
+    const user = '';
     const menu = <>
         <li className='hover:text-red-600'><NavLink to={'/'} className={({ isActive }) => isActive ? "text-red-600" : ""}>Home</NavLink></li>
         <li className='hover:text-red-600'><NavLink to={'/allToys'} className={({ isActive }) => isActive ? "text-red-600" : ""}>All Toys</NavLink></li>
@@ -40,9 +40,9 @@ const Navbar = () => {
                 {
                     user ? <>
                         <img src="" alt="user" className='rounded-full w-9 h-9 border mr-5' />
-                        <NavLink to={'/logout'} className={`btn-custom   ${({ isActive }) => isActive ? "text-red-600" : ""}`}>Logout</NavLink>
+                        <NavLink to={'/logout'} className={`btn-custom   ${({ isActive }) => isActive ? "text-red-600" : ""}`}>Sign Out</NavLink>
                     </> :
-                        <NavLink to={'/login'} className={`btn-custom   ${({ isActive }) => isActive ? "text-red-600" : ""}`}>Login</NavLink>
+                        <NavLink to={'/login'} className={`btn-custom   ${({ isActive }) => isActive ? "text-red-600" : ""}`}>Sign In</NavLink>
                 }
             </div>
         </div>

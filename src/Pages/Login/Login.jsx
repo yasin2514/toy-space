@@ -1,0 +1,80 @@
+import { FcGoogle } from "react-icons/fc";
+import { FaGithub, FaEye, FaEyeSlash } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import Lottie from "lottie-react";
+import login from '/public/94006-sign-in-red.json'
+import { useState } from "react";
+const Login = () => {
+    const [error, setError] = useState(null);
+    const [success, setSuccess] = useState(null);
+    const [show, setShow] = useState(false);
+
+
+    return (
+        <div className="hero min-h-screen bg-gray-100 py-20">
+            <div className="hero-content w-full flex-col lg:flex-row">
+                <div className="w-full lg:w-1/2">
+                    <img src={login} alt="" />
+                    <Lottie
+                        animationData={login}
+                        loop={true} />
+
+                </div>
+
+                <div className="card w-full lg:w-1/2 py-10 shadow-xl bg-white">
+                    <h1 className="text-3xl text-center font-bold">Sign in</h1>
+
+                    <div className="text-center mt-10 space-x-10">
+                        <button className="btn btn-outline"><FcGoogle className="text-3xl"></FcGoogle></button>
+                        <button className="btn btn-outline"><FaGithub className="text-3xl"></FaGithub></button>
+                    </div>
+                    <div className="flex items-center px-20 mt-8 ">
+                        <span className="border-t-2 border-black w-2/3"></span>
+                        <span className="font-medium text-xl w-full text-center">Or  continue With</span>
+                        <span className="border-t-2 border-black w-2/3"></span>
+                    </div>
+                    {/* form start */}
+                    <form className="card-body ">
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Email Address</span>
+                            </label>
+                            <input type="text" placeholder="Your email" className="input input-bordered" />
+                        </div>
+                        <div className="form-control ">
+                            <label className="label relative">
+                                <span className="label-text">Password</span>
+                                <span className="absolute top-[50px] text-xl text-gray-500 right-4 link" onClick={() => setShow(!show)}>
+                                    {
+                                        show ?
+                                            <FaEye></FaEye> :
+                                            <FaEyeSlash></FaEyeSlash>
+                                    }
+                                </span>
+                            </label>
+                            <input type={show ? "text" : "password"} placeholder="Your password" className="input input-bordered" />
+                        </div>
+                        <div className="label justify-start gap-2">
+                            <input type="checkbox" className="checkbox " />
+                            <span className="label-text-alt">Remember me</span>
+                        </div>
+
+                        <label className="label">
+                            <p className="">New User? <Link to={'/registration'}><span className="hover:text-blue-600 hover:underline">Register here</span></Link></p>
+                        </label>
+                        <div className="form-control">
+                            <input type="submit" className="btn" value="Sign In" />
+                        </div>
+                        <div className="text-center">
+                            <p className="text-green-600">{success}</p>
+                            <p className="text-red-600">{error}</p>
+                        </div>
+                    </form>
+                    {/* form end */}
+                </div>
+            </div>
+        </div >
+    );
+};
+
+export default Login;

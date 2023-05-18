@@ -50,7 +50,7 @@ const Footer = () => {
             </div>
             <hr className='my-8 border-gray-700' />
             <div className='flex justify-between'>
-                <small>&copy;2023 The <span className='text-red-500'>ToySpace</span>  All Rights Reserved</small>
+                <small>&copy;2023 The <span className='text-bolder text-white'><span className='text-red-500'>Toy</span>Space</span>  All Rights Reserved</small>
                 <small>Develop By <span className='text-red-500'>Yasin Khan Rabbi</span></small>
 
             </div>
