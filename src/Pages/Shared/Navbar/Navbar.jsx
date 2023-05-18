@@ -1,7 +1,45 @@
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import logo from '../../../assets/logo-2.png'
+import { useContext } from 'react';
+import { AuthContext } from '../../../Providers/AuthProviders';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import 'react-tooltip/dist/react-tooltip.css';
+import { Tooltip } from 'react-tooltip';
+
+
 const Navbar = () => {
-    const user = '';
+    const { user, logout } = useContext(AuthContext);
+    const handleLogout = () => {
+        logout()
+            .then(() => {
+                toast.success('User logOut Successfully!', {
+                    position: "top-center",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
+
+            })
+            .catch(error => {
+                toast.error(error.message, {
+                    position: "top-center",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
+            })
+    }
+
+
     const menu = <>
         <li className='hover:text-red-600'><NavLink to={'/'} className={({ isActive }) => isActive ? "text-red-600" : ""}>Home</NavLink></li>
         <li className='hover:text-red-600'><NavLink to={'/allToys'} className={({ isActive }) => isActive ? "text-red-600" : ""}>All Toys</NavLink></li>
@@ -39,11 +77,13 @@ const Navbar = () => {
             <div className="navbar-end">
                 {
                     user ? <>
-                        <img src="" alt="user" className='rounded-full w-9 h-9 border mr-5' />
-                        <NavLink to={'/logout'} className={`btn-custom   ${({ isActive }) => isActive ? "text-red-600" : ""}`}>Sign Out</NavLink>
+                        <img data-tooltip-id="my-tooltip" data-tooltip-content={user?.displayName} src={user?.photoURL} alt={user?.displayName} className='rounded-full w-9 h-9 border mr-5' />
+                        <Link onClick={handleLogout} to={'/login'} className={`btn-custom`}>Sign Out</Link>
+                        <Tooltip id="my-tooltip" />
                     </> :
-                        <NavLink to={'/login'} className={`btn-custom   ${({ isActive }) => isActive ? "text-red-600" : ""}`}>Sign In</NavLink>
+                        <Link to={'/login'} className={`btn-custom `}>Sign In</Link>
                 }
+                <ToastContainer />
             </div>
         </div>
     );

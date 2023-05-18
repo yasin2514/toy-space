@@ -3,11 +3,55 @@ import { FaGithub, FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Lottie from "lottie-react";
 import login from '/public/94006-sign-in-red.json'
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../Providers/AuthProviders";
+
+
 const Login = () => {
     const [error, setError] = useState(null);
     const [success, setSuccess] = useState(null);
     const [show, setShow] = useState(false);
+    const { googleLogin, signIn, githubLogin } = useContext(AuthContext);
+
+    const handleGoogleLogin = () => {
+        googleLogin()
+            .then(() => {
+                setSuccess('User Login Successfully');
+                setError('');
+            })
+            .catch(error => {
+                setError(error.message);
+                setSuccess('');
+            })
+    }
+    const handleGithubLogin = () => {
+        githubLogin()
+            .then(() => {
+                setSuccess('User Login Successfully');
+                setError('');
+            })
+            .catch(error => {
+                setError(error.message);
+                setSuccess('');
+            })
+    }
+
+    const handleSignIn = event => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        setSuccess(null);
+        setError(null);
+        signIn(email, password)
+            .then(() => {
+                setSuccess("User Login Successfully");
+                form.reset();
+            })
+            .catch(error => setError(error.message))
+
+    };
+
 
 
     return (
@@ -25,8 +69,8 @@ const Login = () => {
                     <h1 className="text-3xl text-center font-bold">Sign in</h1>
 
                     <div className="text-center mt-10 space-x-10">
-                        <button className="btn btn-outline"><FcGoogle className="text-3xl"></FcGoogle></button>
-                        <button className="btn btn-outline"><FaGithub className="text-3xl"></FaGithub></button>
+                        <button onClick={handleGoogleLogin} className="btn btn-outline"><FcGoogle className="text-3xl"></FcGoogle></button>
+                        <button onClick={handleGithubLogin} className="btn btn-outline"><FaGithub className="text-3xl"></FaGithub></button>
                     </div>
                     <div className="flex items-center px-20 mt-8 ">
                         <span className="border-t-2 border-black w-2/3"></span>
@@ -34,12 +78,12 @@ const Login = () => {
                         <span className="border-t-2 border-black w-2/3"></span>
                     </div>
                     {/* form start */}
-                    <form className="card-body ">
+                    <form onSubmit={handleSignIn} className="card-body ">
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email Address</span>
                             </label>
-                            <input type="text" placeholder="Your email" className="input input-bordered" />
+                            <input type="text" placeholder="Your email" className="input input-bordered" name="email" required />
                         </div>
                         <div className="form-control ">
                             <label className="label relative">
@@ -52,7 +96,7 @@ const Login = () => {
                                     }
                                 </span>
                             </label>
-                            <input type={show ? "text" : "password"} placeholder="Your password" className="input input-bordered" />
+                            <input type={show ? "text" : "password"} placeholder="Your password" className="input input-bordered" name="password" required />
                         </div>
                         <div className="label justify-start gap-2">
                             <input type="checkbox" className="checkbox " />

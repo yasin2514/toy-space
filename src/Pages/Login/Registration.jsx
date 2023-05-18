@@ -2,12 +2,49 @@ import { Link } from "react-router-dom";
 import Lottie from "lottie-react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import login from '/public/signin.json'
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../Providers/AuthProviders";
+import { updateProfile } from "firebase/auth";
+
+
 const Registration = () => {
     const [error, setError] = useState(null);
     const [success, setSuccess] = useState(null);
     const [active, setActive] = useState(false);
     const [show, setShow] = useState(false);
+    const { createUser } = useContext(AuthContext);
+
+    const handleSignUP = event => {
+        event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        const photo = form.photo.value;
+        setSuccess(null);
+        setError(null);
+        if (password.length < 6) {
+            setError("Password should be 6 character or more");
+            return;
+        }
+        createUser(email, password)
+            .then(result => {
+                setSuccess("User Create Successfully");
+                const loggedUser = result.user;
+                updateUserInfo(loggedUser, name, photo);
+                console.log(loggedUser);
+                form.reset();
+            })
+            .catch(error => setError(error.message))
+    };
+
+    const updateUserInfo = (user, displayName, photoURL) => {
+        updateProfile(user, {
+            displayName,
+            photoURL
+        })
+    }
+
 
     return (
         <div className="hero min-h-screen bg-gray-100 py-20">
@@ -23,18 +60,18 @@ const Registration = () => {
                 <div className="card w-full lg:w-1/2 py-10 shadow-xl bg-white">
                     <h1 className="text-3xl text-center font-bold">Create Account</h1>
                     {/* form start */}
-                    <form className="card-body ">
+                    <form onSubmit={handleSignUP} className="card-body ">
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Name</span>
                             </label>
-                            <input type="text" placeholder="Your Name" className="input input-bordered" name="name" required/>
+                            <input type="text" placeholder="Your Name" className="input input-bordered" name="name" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email Address</span>
                             </label>
-                            <input type="text" placeholder="Your email" className="input input-bordered" name="email" required/>
+                            <input type="text" placeholder="Your email" className="input input-bordered" name="email" required />
                         </div>
                         <div className="form-control ">
                             <label className="label relative">
@@ -47,13 +84,13 @@ const Registration = () => {
                                     }
                                 </span>
                             </label>
-                            <input type={show ? "text" : "password"} placeholder="Your password" className="input input-bordered" name="password" required/>
+                            <input type={show ? "text" : "password"} placeholder="Your password" className="input input-bordered" name="password" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Phot URL</span>
                             </label>
-                            <input type="text" placeholder="Photo URL" className="input input-bordered" name="photo" required/>
+                            <input type="text" placeholder="Photo URL" className="input input-bordered" name="photo" required />
                         </div>
                         <div className="label justify-start gap-2">
                             <input onClick={() => setActive(!active)} type="checkbox" className="checkbox " />
@@ -64,7 +101,7 @@ const Registration = () => {
                             <p className="">Already have an Account? <Link to={'/login'}><span className="hover:text-blue-600 hover:underline">Login here</span></Link></p>
                         </label>
                         <div className="form-control mt-6">
-                            <input type="submit" disabled={!active} className="btn" value="Sign In" />
+                            <input type="submit" disabled={!active} className="btn" value="Sign Up" />
                         </div>
                         <div className="text-center">
                             <p className="text-green-600">{success}</p>
