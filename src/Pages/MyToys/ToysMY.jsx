@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
-const Toys = ({ toy,index }) => {
+const ToysMY = ({ toy,index }) => {
     const { _id, sellerName, toyName, price, category, quantity } = toy;
     return (
         <tr>
@@ -17,4 +17,4 @@ const Toys = ({ toy,index }) => {
     );
 };
 
-export default Toys;
+export default ToysMY;

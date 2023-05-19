@@ -23,8 +23,8 @@ const AllToys = () => {
                             <th className="text-xl">Seller</th>
                             <th className="text-xl">Toy Name</th>
                             <th className="text-xl">Sub Category</th>
-                            <th className="text-xl">Price</th>
                             <th className="text-xl">Quantity</th>
+                            <th className="text-xl">Price</th>
                             <th className="text-xl">View Details</th>
                         </tr>
                     </thead>

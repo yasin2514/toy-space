@@ -17,7 +17,7 @@ const AddAToy = () => {
 
         const toy = {
             sellerName: user?.displayName,
-            sellerEmail: user?.email,
+            email: user?.email,
             toyName,
             toyPhoto,
             price,
