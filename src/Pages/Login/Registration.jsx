@@ -32,7 +32,6 @@ const Registration = () => {
                 setSuccess("User Create Successfully");
                 const loggedUser = result.user;
                 updateUserInfo(loggedUser, name, photo);
-                console.log(loggedUser);
                 form.reset();
             })
             .catch(error => setError(error.message))

@@ -1,8 +1,11 @@
+import Banner from "../Others/Banner/Banner";
+import Gallery from "../Others/Gallery/Gallery";
 
 const Home = () => {
     return (
         <div>
-            home page
+            <Banner></Banner>
+            <Gallery></Gallery>
         </div>
     );
 };

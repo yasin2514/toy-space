@@ -15,7 +15,7 @@ const Navbar = () => {
             .then(() => {
                 toast.success('User logOut Successfully!', {
                     position: "top-center",
-                    autoClose: 2000,
+                    autoClose: 1500,
                     hideProgressBar: false,
                     closeOnClick: true,
                     pauseOnHover: true,
@@ -28,7 +28,7 @@ const Navbar = () => {
             .catch(error => {
                 toast.error(error.message, {
                     position: "top-center",
-                    autoClose: 2000,
+                    autoClose: 1500,
                     hideProgressBar: false,
                     closeOnClick: true,
                     pauseOnHover: true,
