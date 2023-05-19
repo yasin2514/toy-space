@@ -3,7 +3,6 @@ import logo from '../../../assets/logo-2.png'
 import { useContext } from 'react';
 import { AuthContext } from '../../../Providers/AuthProviders';
 import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import 'react-tooltip/dist/react-tooltip.css';
 import { Tooltip } from 'react-tooltip';
 

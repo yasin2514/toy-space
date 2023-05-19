@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 const Gallery = () => {
     const [cars, setCars] = useState();
     useEffect(() => {
-        fetch('gallery.json')
+        fetch('https://toy-marketplace-server-plum.vercel.app/gallery')
             .then(res => res.json())
             .then(data => setCars(data))
     }, [])

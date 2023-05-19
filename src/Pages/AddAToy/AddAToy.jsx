@@ -1,68 +1,119 @@
-import img1 from '../../assets/b-4.jpg'
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProviders";
+import { ToastContainer, toast } from 'react-toastify';
 
 const AddAToy = () => {
+    const { user } = useContext(AuthContext);
+
+    const handleAddToy = event => {
+        event.preventDefault();
+        const form = event.target;
+        const toyName = form.toyName.value;
+        const toyPhoto = form.toyPhoto.value;
+        const price = form.price.value;
+        const quantity = form.quantity.value;
+        const rating = form.rating.value;
+        const category = form.category.value;
+
+        const toy = {
+            sellerName: user?.displayName,
+            sellerEmail: user?.email,
+            toyName,
+            toyPhoto,
+            price,
+            quantity,
+            rating,
+            category,
+        }
+        fetch('http://localhost:5000/toys', {
+            method: "POST",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(toy)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.acknowledged) {
+                    toast.success('Toy Added Successfully!', {
+                        position: "top-center",
+                        autoClose: 1500,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "light",
+                    });
+                    form.reset();
+                }
+            })
+    }
+
     return (
-        <div className="relative w-full h-screen">
-            <img src={img1} className='w-full h-full object-cover' alt="" />
-            <div className='absolute  h-full flex items-center w-full top-0  bg-gradient-to-r from-[#000000] '>
+        <div className="add-toys-bg py-10">
+            <form onSubmit={handleAddToy} className="px-10 mb-10 h-full rounded-xl pt-10 pb-16 bg-gray-800 bg-opacity-70 w-full mx-auto lg:w-10/12">
+                <h2 className="font-bold text-5xl mb-7 text-center text-white">Add Your Toys</h2>
 
-                <form className="px-10 mx-auto w-10/12">
-                    <h2 className="font-bold text-5xl mb-7 text-center text-white">Add Your Toys</h2>
-                    <div className=" grid lg:grid-cols-2 gap-x-10 gap-y-5">
+                <div className=" grid lg:grid-cols-2  gap-x-10 gap-y-5">
 
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="text-white">Toy Name</span>
-                            </label>
-                            <input type="text" placeholder="Toy name" className="input input-bordered" name="toyName" required />
-                        </div>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="text-white">Toy Photo URL</span>
-                            </label>
-                            <input type="url" placeholder="Toy photo URL" className="input input-bordered" name="toyPhoto" required />
-                        </div>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="text-white">Price</span>
-                            </label>
-                            <input type="number" placeholder="Toy price" className="input input-bordered" name="price" required />
-                        </div>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="text-white">Available Quantity</span>
-                            </label>
-                            <input type="number" placeholder="Available quantity" className="input input-bordered" name="quantity" required />
-                        </div>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="text-white">Rating</span>
-                            </label>
-                            <input type="number" placeholder="Rating" className="input input-bordered" name="rating" required />
-                        </div>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="text-white">Sub Category</span>
-                            </label>
-                            <select className="select select-bordered">
-                                <option disabled selected >Choose toy category?</option>
-                                <option>Han Solo</option>
-                                <option>Greedo</option>
-                            </select>
-                        </div>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="text-white">Toy Name</span>
+                        </label>
+                        <input type="text" placeholder="Toy name" className="input input-bordered" name="toyName" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
-                            <span className="text-white">Toy Detail Description</span>
+                            <span className="text-white">Toy Photo URL</span>
                         </label>
-                        <textarea className="textarea textarea-bordered w-full" placeholder="Detail description" name="description"></textarea>
+                        <input type="url" placeholder="Toy photo URL" className="input input-bordered" name="toyPhoto" required />
                     </div>
-                    <div className="text-center mt-10 mb-20">
-                        <input type="submit" className="btn btn-primary  w-full" value="ADD TOY" />
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="text-white">Price</span>
+                        </label>
+                        <input type="number" step={'any'} placeholder="Toy price" className="input input-bordered" name="price" required />
                     </div>
-                </form>
-            </div>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="text-white">Available Quantity</span>
+                        </label>
+                        <input type="number" placeholder="Available quantity" className="input input-bordered" name="quantity" required />
+                    </div>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="text-white">Rating</span>
+                        </label>
+                        <input type="number" step={'any'} placeholder="Rating" className="input input-bordered" name="rating" required />
+                    </div>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="text-white">Sub Category</span>
+                        </label>
+                        <select className="select select-bordered" name="category">
+                            <option>Mini Sports Car</option>
+                            <option>Mini Truck</option>
+                            <option>Regular Car</option>
+                            <option>Mini Fire Truck</option>
+                            <option>Mini Police Car</option>
+                            <option>Mini Ambulance</option>
+                        </select>
+                    </div>
+                </div>
+                <div className="form-control">
+                    <label className="label">
+                        <span className="text-white">Toy Detail Description</span>
+                    </label>
+                    <textarea className="textarea textarea-bordered w-full" placeholder="Detail description" name="description"></textarea>
+                </div>
+                <div className="text-center mt-10">
+                    <input type="submit" className="btn btn-primary  w-full" value="ADD TOY" />
+                </div>
+            </form>
+            <ToastContainer />
         </div>
+        // </div>
 
     );
 };
