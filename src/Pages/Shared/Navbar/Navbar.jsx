@@ -45,8 +45,8 @@ const Navbar = () => {
         <li className='hover:text-red-600'><NavLink to={'/allToys'} className={({ isActive }) => isActive ? "text-red-600" : ""}>All Toys</NavLink></li>
         {
             user && <>
-                <li className='hover:text-red-600'><NavLink to={'/myToys'} className={({ isActive }) => isActive ? "text-red-600" : ""}>MyToys</NavLink></li>
                 <li className='hover:text-red-600'><NavLink to={'/addAToy'} className={({ isActive }) => isActive ? "text-red-600" : ""}>Add A Toy</NavLink></li>
+                <li className='hover:text-red-600'><NavLink to={'/myToys'} className={({ isActive }) => isActive ? "text-red-600" : ""}>MyToys</NavLink></li>
             </>
 
         }

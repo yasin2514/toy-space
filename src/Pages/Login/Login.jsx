@@ -1,6 +1,6 @@
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub, FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Lottie from "lottie-react";
 import login from '/public/94006-sign-in-red.json'
 import { useContext, useState } from "react";
@@ -12,11 +12,16 @@ const Login = () => {
     const [success, setSuccess] = useState(null);
     const [show, setShow] = useState(false);
     const { googleLogin, signIn, githubLogin } = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const from = location.state?.from?.pathname || '/';
 
     const handleGoogleLogin = () => {
         googleLogin()
             .then(() => {
                 setSuccess('User Login Successfully');
+                navigate(from, { relative: true });
                 setError('');
             })
             .catch(error => {
@@ -28,6 +33,7 @@ const Login = () => {
         githubLogin()
             .then(() => {
                 setSuccess('User Login Successfully');
+                navigate(from, { relative: true });
                 setError('');
             })
             .catch(error => {
@@ -46,6 +52,7 @@ const Login = () => {
         signIn(email, password)
             .then(() => {
                 setSuccess("User Login Successfully");
+                navigate(from, { relative: true });
                 form.reset();
             })
             .catch(error => setError(error.message))
