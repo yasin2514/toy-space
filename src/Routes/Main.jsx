@@ -10,6 +10,7 @@ import AllToys from "../Pages/AllToys/AllToys";
 import AddAToy from "../Pages/AddAToy/AddAToy";
 import MyToys from "../Pages/MyToys/MyToys";
 import PrivateRoutes from "../Private/PrivateRoutes";
+import Update from "../Pages/MyToys/Update";
 
 const router = createBrowserRouter([
     {
@@ -49,6 +50,11 @@ const router = createBrowserRouter([
             {
                 path: '/myToys',
                 element: <PrivateRoutes><MyToys></MyToys></PrivateRoutes>
+            },
+            {
+                path: '/update/:id',
+                element: <Update></Update>,
+                loader: ({ params }) => fetch(`https://toy-marketplace-server-plum.vercel.app/toys/${params.id}`)
             },
 
         ],

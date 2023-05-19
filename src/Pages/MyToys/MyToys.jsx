@@ -17,12 +17,12 @@ const MyToys = () => {
     }, [url]);
 
     return (
-         <div className="my-16">
+        <div className="my-16">
             <div className="text-center mb-10">
                 <h2 className="font-bold text-5xl mb-7 text-center text-black">My Toys</h2>
-               
+
             </div>
-            <div className="overflow-hidden">
+            <div className="overflow-x-auto">
                 <table className="table text-center  w-11/12 mx-auto">
                     <thead >
                         <tr>
@@ -32,15 +32,18 @@ const MyToys = () => {
                             <th className="text-xl">Sub Category</th>
                             <th className="text-xl">Quantity</th>
                             <th className="text-xl">Price</th>
-                            <th className="text-xl">View Details</th>
+                            <th className="text-xl">Delete</th>
+                            <th className="text-xl">Update</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            toys && toys.map((toy,i) => <ToysMY
+                            toys && toys.map((toy, i) => <ToysMY
                                 key={toy._id}
                                 index={i}
                                 toy={toy}
+                                toys={toys}
+                                setToys={setToys}
                             ></ToysMY>)
                         }
                     </tbody>

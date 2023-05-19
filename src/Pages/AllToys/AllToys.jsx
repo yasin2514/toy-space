@@ -15,7 +15,7 @@ const AllToys = () => {
                 </div>
 
             </div>
-            <div className="overflow-hidden">
+            <div className="overflow-x-auto">
                 <table className="table text-center  w-11/12 mx-auto">
                     <thead >
                         <tr>
