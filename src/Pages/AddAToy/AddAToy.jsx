@@ -15,10 +15,11 @@ const AddAToy = () => {
         const rating = form.rating.value;
         const category = form.category.value;
         const description = form.description.value;
+        const sellerEmail = form.email.value;
 
         const toy = {
             sellerName: user?.displayName,
-            email: user?.email,
+            email: user.email ? user.email : sellerEmail,
             toyName,
             toyPhoto,
             price,
@@ -54,7 +55,7 @@ const AddAToy = () => {
 
     return (
         <div className="add-toys-bg py-10">
-            <form onSubmit={handleAddToy} className="px-10 mb-10 h-full rounded-xl pt-10 pb-16 bg-gray-800 bg-opacity-70 w-full mx-auto lg:w-10/12">
+            <form onSubmit={handleAddToy} className="px-10 mb-10 h-full rounded-xl pt-10 pb-16 bg-gray-800 bg-opacity-90 w-full mx-auto lg:w-10/12">
                 <h2 className="font-bold text-5xl mb-7 text-center text-white">Add Your Toys</h2>
 
                 <div className=" grid lg:grid-cols-2  gap-x-10 gap-y-5">
@@ -65,6 +66,7 @@ const AddAToy = () => {
                         </label>
                         <input type="text" placeholder="Toy name" className="input input-bordered" name="toyName" required />
                     </div>
+
                     <div className="form-control">
                         <label className="label">
                             <span className="text-white">Toy Photo URL</span>
@@ -103,7 +105,16 @@ const AddAToy = () => {
                         </select>
                     </div>
                 </div>
-                <div className="form-control">
+                {
+                    user.email ? "" :
+                        <div className="form-control mt-5">
+                            <label className="label">
+                                <span className="text-white">Seller Email</span>
+                            </label>
+                            <input type="email" placeholder="Enter Your Email" className="input input-bordered" name="email" required />
+                        </div>
+                }
+                <div className="form-control mt-5">
                     <label className="label">
                         <span className="text-white">Toy Detail Description</span>
                     </label>
@@ -115,7 +126,6 @@ const AddAToy = () => {
             </form>
             <ToastContainer />
         </div>
-        // </div>
 
     );
 };

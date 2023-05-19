@@ -31,10 +31,11 @@ const Login = () => {
     }
     const handleGithubLogin = () => {
         githubLogin()
-            .then(() => {
+            .then((result) => {
                 setSuccess('User Login Successfully');
                 navigate(from, { relative: true });
                 setError('');
+                console.log(result.user)
             })
             .catch(error => {
                 setError(error.message);
