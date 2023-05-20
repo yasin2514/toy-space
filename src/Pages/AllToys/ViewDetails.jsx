@@ -1,12 +1,12 @@
 import { useLoaderData } from "react-router-dom";
-
+import { Rating } from '@smastrom/react-rating';
 const ViewDetails = () => {
     const toy = useLoaderData();
     const { sellerName, email, rating, toyPhoto, description, toyName, price, category, quantity } = toy;
 
     return (
         <div className="add-toys-bg py-20 flex items-center">
-            <div className="flex items-center  justify-evenly w-3/5 rounded-2xl mx-auto bg-gray-800 gap-20 p-10 bg-opacity-90">
+            <div className="flex items-center  justify-evenly w-3/5 rounded-2xl mx-auto bg-gray-800 gap-20 p-10 bg-opacity-95 shadow shadow-gray-200">
                 <div className="w-full lg:w-1/2">
                     <img src={toyPhoto} alt="Album" className="rounded-lg h-full w-full object-cover" />
                 </div>
@@ -18,7 +18,10 @@ const ViewDetails = () => {
                     <p className="text-gray-200"> <span className="font-medium text-white">Price: </span>{price}</p>
                     <p className="text-gray-200"> <span className="font-medium text-white">Sub Category: </span>{category}</p>
                     <p className="text-gray-200"> <span className="font-medium text-white">Available Quantity: </span>{quantity}</p>
-                    <p className="text-gray-200"> <span className="font-medium text-white">Ratings: </span>{rating}</p>
+                    <span className="text-gray-200 flex items-center gap-2">Ratings:
+                        <Rating className="" style={{ maxWidth: 110 }}
+                            value={rating} readOnly />
+                    </span>
                 </div>
             </div>
         </div>

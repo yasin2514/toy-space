@@ -43,7 +43,7 @@ const Update = () => {
 
     return (
         <div className="add-toys-bg py-10">
-            <form onSubmit={handleAddToy} className="px-10 mb-10 h-full rounded-xl pt-10 pb-16 bg-gray-800 bg-opacity-70 w-full mx-auto lg:w-10/12">
+            <form onSubmit={handleAddToy} className="px-10 mb-10 h-full rounded-xl pt-10 pb-16 bg-gray-800 gap-20 p-10 bg-opacity-95 shadow shadow-gray-200 w-full mx-auto lg:w-10/12">
                 <h2 className="font-bold text-5xl mb-7 text-center text-white">Update Your Toys {user?.displayName}</h2>
 
                 <div className=" grid lg:grid-cols-2  gap-x-10 gap-y-5">
