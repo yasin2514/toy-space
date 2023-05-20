@@ -1,16 +1,31 @@
-import { useLoaderData } from "react-router-dom";
 import Toys from "./Toys";
 import PageTitle from "../Shared/PageTitle/PageTitle";
+import { useEffect, useState } from "react";
 
 const AllToys = () => {
-    const toys = useLoaderData();
+    const [toys, setToys] = useState([])
+    const [search, setSearch] = useState(null)
+
+    useEffect(() => {
+        fetch('https://toy-marketplace-server-plum.vercel.app/toys')
+            .then(res => res.json())
+            .then(data => setToys(data))
+    }, [])
+
+    const handleSearch = () => {
+        fetch(`https://toy-marketplace-server-plum.vercel.app/toySearch/${search}`)
+            .then(res => res.json())
+            .then(data => {
+                setToys(data)
+            })
+    }
     return (
         <div className="my-16">
             <PageTitle title="AllToys" />
             <div className="text-center mb-10">
                 <div className="flex items-center justify-center w-full">
-                    <input type="search" placeholder="Enter toy name" className="input input-bordered w-full max-w-sm rounded-e-none" />
-                    <button className="btn rounded-s-none">Search</button>
+                    <input onChange={(e) => setSearch(e.target.value)} type="search" placeholder="Enter toy name" className="input input-bordered w-full max-w-sm rounded-e-none" />
+                    <button onClick={handleSearch} className="btn rounded-s-none">Search</button>
                 </div>
 
             </div>

@@ -5,7 +5,7 @@ import Subcategory from './SubCategory';
 const Category = () => {
     const [subCategory, setSubCategory] = useState('Mini Sports Car');
     const [toys, setToys] = useState([]);
-    
+
     // get sub-category name
     const handleClick = event => {
         setSubCategory(event.target.innerText);
@@ -28,9 +28,9 @@ const Category = () => {
                 <div>
                     <Tabs className={" bg-opacity-90 bg-gray-200 rounded-xl"}>
                         <TabList className={'tabs-boxed flex py-7 rounded-b-none bg-black bg-opacity-95  gap-10 justify-center'} onClick={handleClick}>
-                            <Tab className={'tab tab-lifted bg-black shadow shadow-white text-gray-600 text-xl font-bold'}> Mini Sports Car</Tab>
-                            <Tab className={'tab tab-lifted bg-black shadow shadow-white text-gray-600 text-xl font-bold'}> Mini Police Car</Tab>
-                            <Tab className={'tab tab-lifted bg-black shadow shadow-white text-gray-600 text-xl font-bold'}> Mini Truck</Tab>
+                            <Tab className={'tab tab-lifted shadow shadow-white text-gray-600 text-xl font-bold'}> Mini Sports Car</Tab>
+                            <Tab className={'tab tab-lifted shadow shadow-white text-gray-600 text-xl font-bold'}> Mini Police Car</Tab>
+                            <Tab className={'tab tab-lifted shadow shadow-white text-gray-600 text-xl font-bold'}> Mini Truck</Tab>
                         </TabList>
 
                         <TabPanel>
