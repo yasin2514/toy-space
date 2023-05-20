@@ -76,7 +76,7 @@ const Update = () => {
                         <label className="label">
                             <span className="text-white">Price</span>
                         </label>
-                        <input type="number" step={'any'} placeholder="Toy price" className="input input-bordered" name="price" required defaultValue={toy?.price} />
+                        <input type="number" step={'any'} placeholder="$ Toy price" className="input input-bordered" name="price" required defaultValue={toy?.price} />
                     </div>
                     <div className="form-control">
                         <label className="label">

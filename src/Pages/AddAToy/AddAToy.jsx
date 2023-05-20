@@ -1,9 +1,13 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProviders";
 import { ToastContainer, toast } from 'react-toastify';
+import { updateEmail } from "firebase/auth";
 
 const AddAToy = () => {
     const { user } = useContext(AuthContext);
+    console.log(user)
+
+
 
     const handleAddToy = event => {
         event.preventDefault();
@@ -15,7 +19,14 @@ const AddAToy = () => {
         const rating = form.rating.value;
         const category = form.category.value;
         const description = form.description.value;
-        const sellerEmail = form.email.value;
+        const sellerEmail = form?.email?.value;
+
+
+        updateEmail(user, user.email ? user.email : sellerEmail)
+            .then(() => { })
+            .catch(() => { })
+
+
 
         const toy = {
             sellerName: user?.displayName,
@@ -77,7 +88,7 @@ const AddAToy = () => {
                         <label className="label">
                             <span className="text-white">Price</span>
                         </label>
-                        <input type="number" step={'any'} placeholder="Toy price" className="input input-bordered" name="price" required />
+                        <input type="number" step={'any'} placeholder="$ Toy price" className="input input-bordered" name="price" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
