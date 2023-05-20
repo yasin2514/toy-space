@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProviders";
 import ToysMY from "./ToysMY";
+import PageTitle from "../Shared/PageTitle/PageTitle";
 
 const MyToys = () => {
     const { user } = useContext(AuthContext);
@@ -18,8 +19,9 @@ const MyToys = () => {
 
     return (
         <div className="my-16">
+             <PageTitle title="MyToys" />
             <div className="text-center mb-10">
-                <h2 className="font-bold text-5xl mb-7 text-center text-black">My Toys</h2>
+                <h2 className="font-bold text-4xl mb-7 text-center text-black">{user.displayName}'s Toys</h2>
 
             </div>
             <div className="overflow-x-auto">

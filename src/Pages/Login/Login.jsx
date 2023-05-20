@@ -7,6 +7,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProviders";
 
 import Swal from 'sweetalert2';
+import PageTitle from "../Shared/PageTitle/PageTitle";
 
 const Login = () => {
     const [error, setError] = useState(null);
@@ -73,6 +74,7 @@ const Login = () => {
 
     return (
         <div className="hero min-h-screen bg-gray-100 py-20">
+            <PageTitle title="Login" />
             <div className="hero-content w-full flex-col lg:flex-row">
                 <div className="w-full lg:w-1/2">
                     <img src={login} alt="" />
