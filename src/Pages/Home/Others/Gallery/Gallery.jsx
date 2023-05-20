@@ -16,7 +16,7 @@ const Gallery = () => {
             <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
                 {
                     cars && cars.map(car => (
-                        <div className="shadow bg-gray-100 rounded-lg relative hover:scale-[1.12] duration-300"
+                        <div className="shadow bg-gray-200 rounded-lg relative hover:scale-[1.12] duration-300"
                             key={car._id}>
                             <img src={car.img} alt="" />
                             <div className="absolute rounded-lg hover:overflow-hidden bg-black top-0 h-full w-full flex items-center justify-center opacity-0 hover:opacity-75 hover:ease-in duration-300 ">

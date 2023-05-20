@@ -5,7 +5,7 @@ import { RouterProvider } from 'react-router-dom'
 import router from './Routes/Main.jsx'
 import AuthProviders from './Providers/AuthProviders'
 import '@smastrom/react-rating/style.css';
-
+import 'react-tabs/style/react-tabs.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <div className='max-w-screen-2xl mx-auto bg-white'>

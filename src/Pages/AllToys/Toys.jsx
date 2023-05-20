@@ -9,21 +9,10 @@ const Toys = ({ toy, index }) => {
     const { _id, sellerName, toyName, price, category, quantity } = toy;
     const handleViewDetails = () => {
         if (!user) {
-            let timerInterval;
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
                 text: 'You Need TO Login To See View Details',
-                timer: 1200,
-                timerProgressBar: true,
-                didOpen: () => {
-                    timerInterval = setInterval(() => {
-                    }, 100)
-                },
-                willClose: () => {
-                    clearInterval(timerInterval)
-                }
-            }).then(() => {
             })
         }
     }
