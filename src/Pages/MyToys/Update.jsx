@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProviders";
-import { ToastContainer, toast } from 'react-toastify';
 import { useLoaderData } from "react-router-dom";
+import Swal from 'sweetalert2';
 
 const Update = () => {
     const { user } = useContext(AuthContext);
@@ -31,16 +31,11 @@ const Update = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.modifiedCount > 0) {
-                    toast.success('Toy Updated Successfully!', {
-                        position: "top-center",
-                        autoClose: 1500,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                        theme: "light",
-                    });
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Success',
+                        text: 'Toy Updated Successfully',
+                    })
                     form.reset();
                 }
             })
@@ -95,7 +90,6 @@ const Update = () => {
                     <input type="submit" className="btn btn-primary  w-full" value="Update TOY" />
                 </div>
             </form>
-            <ToastContainer />
         </div>
         // </div>
 

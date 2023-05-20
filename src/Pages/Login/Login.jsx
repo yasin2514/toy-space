@@ -6,10 +6,10 @@ import login from '/public/94006-sign-in-red.json'
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProviders";
 
+import Swal from 'sweetalert2';
 
 const Login = () => {
     const [error, setError] = useState(null);
-    const [success, setSuccess] = useState(null);
     const [show, setShow] = useState(false);
     const { googleLogin, signIn, githubLogin } = useContext(AuthContext);
     const location = useLocation();
@@ -20,26 +20,32 @@ const Login = () => {
     const handleGoogleLogin = () => {
         googleLogin()
             .then(() => {
-                setSuccess('User Login Successfully');
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success',
+                    text: 'User Login Successfully',
+                })
                 navigate(from, { relative: true });
                 setError('');
             })
             .catch(error => {
                 setError(error.message);
-                setSuccess('');
             })
     }
     const handleGithubLogin = () => {
         githubLogin()
             .then((result) => {
-                setSuccess('User Login Successfully');
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success',
+                    text: 'User Login Successfully',
+                })
                 navigate(from, { relative: true });
                 setError('');
                 console.log(result.user)
             })
             .catch(error => {
                 setError(error.message);
-                setSuccess('');
             })
     }
 
@@ -48,11 +54,14 @@ const Login = () => {
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        setSuccess(null);
         setError(null);
         signIn(email, password)
             .then(() => {
-                setSuccess("User Login Successfully");
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success',
+                    text: 'User Login Successfully',
+                })
                 navigate(from, { relative: true });
                 form.reset();
             })
@@ -82,7 +91,7 @@ const Login = () => {
                     </div>
                     <div className="flex items-center px-20 mt-8 ">
                         <span className="border-t-2 border-black w-2/3"></span>
-                        <span className="font-medium text-xl w-full text-center">Or  continue With</span>
+                        <span className="font-medium text-xl w-full text-center">OR  continue With</span>
                         <span className="border-t-2 border-black w-2/3"></span>
                     </div>
                     {/* form start */}
@@ -118,7 +127,6 @@ const Login = () => {
                             <input type="submit" className="btn" value="Sign In" />
                         </div>
                         <div className="text-center">
-                            <p className="text-green-600">{success}</p>
                             <p className="text-red-600">{error}</p>
                         </div>
                     </form>

@@ -2,9 +2,10 @@ import { Link, NavLink } from 'react-router-dom';
 import logo from '../../../assets/logo-2.png'
 import { useContext } from 'react';
 import { AuthContext } from '../../../Providers/AuthProviders';
-import { ToastContainer, toast } from 'react-toastify';
 import 'react-tooltip/dist/react-tooltip.css';
 import { Tooltip } from 'react-tooltip';
+import Swal from 'sweetalert2';
+
 
 
 const Navbar = () => {
@@ -12,29 +13,13 @@ const Navbar = () => {
     const handleLogout = () => {
         logout()
             .then(() => {
-                toast.success('User logOut Successfully!', {
-                    position: "top-center",
-                    autoClose: 1500,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "light",
-                });
-
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success',
+                    text: 'Logout Successfully',
+                })
             })
-            .catch(error => {
-                toast.error(error.message, {
-                    position: "top-center",
-                    autoClose: 1500,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "light",
-                });
+            .catch(() => {
             })
     }
 
@@ -82,7 +67,6 @@ const Navbar = () => {
                     </> :
                         <Link to={'/login'} className={`btn-custom `}>Sign In</Link>
                 }
-                <ToastContainer />
             </div>
         </div>
     );

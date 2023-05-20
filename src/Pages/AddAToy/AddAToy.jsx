@@ -1,14 +1,11 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProviders";
-import { ToastContainer, toast } from 'react-toastify';
 import { updateEmail } from "firebase/auth";
+import Swal from 'sweetalert2';
+
 
 const AddAToy = () => {
     const { user } = useContext(AuthContext);
-    console.log(user)
-
-
-
     const handleAddToy = event => {
         event.preventDefault();
         const form = event.target;
@@ -49,16 +46,11 @@ const AddAToy = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.acknowledged) {
-                    toast.success('Toy Added Successfully!', {
-                        position: "top-center",
-                        autoClose: 1500,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                        theme: "light",
-                    });
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Success',
+                        text: 'Toy Added Successfully',
+                    })
                     form.reset();
                 }
             })
@@ -135,7 +127,6 @@ const AddAToy = () => {
                     <input type="submit" className="btn btn-primary  w-full" value="ADD TOY" />
                 </div>
             </form>
-            <ToastContainer />
         </div>
 
     );

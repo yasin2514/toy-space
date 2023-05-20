@@ -8,9 +8,8 @@ const AllToys = () => {
             <div className="text-center mb-10">
                 <h2 className="font-bold text-5xl mb-7 text-center text-black">All Toys</h2>
                 <div className="flex items-center justify-center w-full">
-
                     <input type="search" placeholder="Enter toy name" className="input input-bordered w-full max-w-sm rounded-e-none" />
-                    <button className="btn rounded-s-none btn-primary">Search</button>
+                    <button className="btn rounded-s-none">Search</button>
 
                 </div>
 
@@ -30,7 +29,7 @@ const AllToys = () => {
                     </thead>
                     <tbody>
                         {
-                            toys && toys.map((toy,i) => <Toys
+                            toys && toys.map((toy, i) => <Toys
                                 key={toy._id}
                                 index={i}
                                 toy={toy}
