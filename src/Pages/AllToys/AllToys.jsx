@@ -4,13 +4,16 @@ import { useEffect, useState } from "react";
 
 const AllToys = () => {
     const [toys, setToys] = useState([])
-    const [search, setSearch] = useState(null)
+    const [search, setSearch] = useState(null);
+    const [limit, setLimit] = useState(20)
 
     useEffect(() => {
-        fetch('https://toy-marketplace-server-plum.vercel.app/toys')
+        fetch(`https://toy-marketplace-server-plum.vercel.app/toys?limit=${limit}`)
             .then(res => res.json())
             .then(data => setToys(data))
-    }, [])
+    }, [limit])
+
+    // search
 
     const handleSearch = () => {
         fetch(`https://toy-marketplace-server-plum.vercel.app/toySearch/${search}`)
@@ -19,6 +22,12 @@ const AllToys = () => {
                 setToys(data)
             })
     }
+
+    // load more data
+    const handleLoadMoreData = () => {
+        setLimit(limit + 10)
+    }
+
     return (
         <div className="my-16">
             <PageTitle title="AllToys" />
@@ -53,6 +62,12 @@ const AllToys = () => {
                     </tbody>
                 </table>
             </div>
+            {
+                toys.length >= limit &&
+                <div className="text-center mt-10">
+                    <button onClick={handleLoadMoreData} className="btn btn-sm">load more</button>
+                </div>
+            }
         </div>
     );
 };
