@@ -25,7 +25,7 @@ const Category = () => {
 
     return (
         <div data-aos="fade-left"
-        data-aos-duration="1000">
+        data-aos-duration="2000">
             <div className="px-20 my-24">
                 <div className="mb-10 text-center">
                     <h2 className="text-5xl font-bold text-black ">Category for Our Shop</h2>
