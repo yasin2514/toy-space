@@ -1,7 +1,13 @@
+import { useEffect } from 'react';
 import img1 from '../../../../assets/b-1.jpg'
 import img2 from '../../../../assets/b-2.jpg'
 import img3 from '../../../../assets/b-3.jpg'
+import AOS from 'aos';
+
 const Banner = () => {
+    useEffect(() => {
+        AOS.init();
+    }, [])
     return (
         <div className="carousel w-full h-[600px] ">
 
@@ -9,7 +15,8 @@ const Banner = () => {
             <div id="slide1" className="carousel-item relative w-full">
                 <img src={img1} className="w-full" />
                 <div className="absolute h-full flex items-center bg-gradient-to-r from-[#151515]  to-[rgba(21, 21, 21, 0)]">
-                    <div className='text-white space-y-7 ms-12  w-2/4 bg-black rounded-xl p-10 bg-opacity-50  '>
+                    <div data-aos="zoom-in-right"
+                        data-aos-duration="1000" className='text-white space-y-7 ms-12   w-2/4 bg-black rounded-xl p-10 bg-opacity-50  '>
                         <h2 className='text-6xl font-bold'>Affordable Price For All Sports CarToy</h2>
                         <p className='font-semibold'>There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
                         <div>
@@ -31,7 +38,8 @@ const Banner = () => {
             <div id="slide2" className="carousel-item relative w-full ">
                 <img src={img2} className="w-full " />
                 <div className="absolute h-full flex items-center  bg-gradient-to-r from-[#151515]  to-[rgba(21, 21, 21, 0)]">
-                    <div className='text-white space-y-7 ms-12  w-2/4 bg-black rounded-xl p-10 bg-opacity-50  '>
+                    <div data-aos="zoom-in-right"
+                        data-aos-duration="1000" className='text-white space-y-7 ms-12  w-2/4 bg-black rounded-xl p-10 bg-opacity-50  '>
                         <h2 className='text-6xl font-bold'>Affordable Price For Car Servicing</h2>
                         <p className='font-semibold'>There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
                         <div>
@@ -51,7 +59,8 @@ const Banner = () => {
             <div id="slide3" className="carousel-item relative w-full">
                 <img src={img3} className="w-full " />
                 <div className="absolute h-full flex items-center  bg-gradient-to-r from-[#151515]  to-[rgba(21, 21, 21, 0)]">
-                    <div className='text-white space-y-7 ms-12  w-2/4 bg-black rounded-xl p-10 bg-opacity-50  '>
+                    <div data-aos="zoom-in-right"
+                        data-aos-duration="1000" className='text-white space-y-7 ms-12  w-2/4 bg-black rounded-xl p-10 bg-opacity-50  '>
                         <h2 className='text-6xl font-bold'>Affordable Price For Car Servicing</h2>
                         <p className='font-semibold'>There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
                         <div>

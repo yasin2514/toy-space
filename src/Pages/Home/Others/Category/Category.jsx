@@ -1,11 +1,15 @@
 import { useEffect, useState } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import Subcategory from './SubCategory';
+import AOS from 'aos';
+
 
 const Category = () => {
     const [subCategory, setSubCategory] = useState('Mini Sports Car');
     const [toys, setToys] = useState([]);
-
+    useEffect(() => {
+        AOS.init();
+    }, [])
     // get sub-category name
     const handleClick = event => {
         setSubCategory(event.target.innerText);
@@ -20,7 +24,8 @@ const Category = () => {
     }, [URL])
 
     return (
-        <div>
+        <div data-aos="fade-left"
+        data-aos-duration="1000">
             <div className="px-20 my-24">
                 <div className="mb-10 text-center">
                     <h2 className="text-5xl font-bold text-black ">Category for Our Shop</h2>

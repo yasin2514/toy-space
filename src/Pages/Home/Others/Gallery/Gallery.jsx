@@ -1,14 +1,19 @@
 import { useEffect, useState } from "react";
+import AOS from 'aos';
 
 const Gallery = () => {
+
     const [cars, setCars] = useState();
     useEffect(() => {
+        AOS.init();
         fetch('https://toy-marketplace-server-plum.vercel.app/gallery')
             .then(res => res.json())
             .then(data => setCars(data))
     }, [])
     return (
-        <div className="px-20 my-24">
+        <div data-aos="fade-right"
+            data-aos-duration="1000"
+            className="px-20 my-24">
             <div className="mb-10 text-center">
                 <h2 className="text-5xl font-bold text-black ">Gallery for Our shop</h2>
                 <p className="mt-2 text-gray-900">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non, nobis! Magnam animi, nam distinctio incidunt <br /> accusantium aliquam! Non, voluptatum repellendus.</p>
