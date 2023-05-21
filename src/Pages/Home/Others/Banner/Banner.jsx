@@ -3,6 +3,7 @@ import img1 from '../../../../assets/b-1.jpg'
 import img2 from '../../../../assets/b-2.jpg'
 import img3 from '../../../../assets/b-3.jpg'
 import AOS from 'aos';
+import { Link } from 'react-router-dom';
 
 const Banner = () => {
     useEffect(() => {
@@ -20,8 +21,7 @@ const Banner = () => {
                         <h2 className='text-6xl font-bold'>Affordable Price For All Sports CarToy</h2>
                         <p className='font-semibold'>There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
                         <div>
-                            <button className="btn btn-error btn-outline mr-5">Discover More</button>
-
+                            <Link to={'/upcoming'} className="btn btn-error btn-outline mr-5">Discover More</Link>
                         </div>
                     </div>
 
@@ -43,7 +43,7 @@ const Banner = () => {
                         <h2 className='text-6xl font-bold'>Affordable Price For Car Servicing</h2>
                         <p className='font-semibold'>There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
                         <div>
-                            <button className="btn btn-outline btn-error mr-5">Discover More</button>
+                            <Link to={'/upcoming'} className="btn btn-outline btn-error mr-5">Discover More</Link>
                         </div>
                     </div>
 
@@ -64,7 +64,7 @@ const Banner = () => {
                         <h2 className='text-6xl font-bold'>Affordable Price For Car Servicing</h2>
                         <p className='font-semibold'>There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
                         <div>
-                            <button className="btn btn-error  btn-outline mr-5">Discover More</button>
+                            <Link to={'/upcoming'} className="btn btn-error  btn-outline mr-5">Discover More</Link>
                         </div>
                     </div>
 

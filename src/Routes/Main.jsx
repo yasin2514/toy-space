@@ -12,6 +12,7 @@ import MyToys from "../Pages/MyToys/MyToys";
 import PrivateRoutes from "../Private/PrivateRoutes";
 import Update from "../Pages/MyToys/Update";
 import ViewDetails from "../Pages/AllToys/ViewDetails";
+import Upcoming from "../Pages/Shared/Upcoming/Upcoming";
 
 const router = createBrowserRouter([
     {
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
             {
                 path: '/allToys',
                 element: <AllToys></AllToys>
+            },
+            {
+                path: '/upcoming',
+                element: <Upcoming></Upcoming>
             },
             {
                 path: '/addAToy',
