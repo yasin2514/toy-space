@@ -39,10 +39,10 @@ const MyToys = () => {
         <div className="my-16">
             <PageTitle title="MyToys" />
             <div className="text-center mb-10">
-                <h2 className="font-bold text-4xl mb-7 text-center text-black">{user.displayName}'s Toys</h2>
+                <h2 className="font-bold text-3xl md:text-4xl mb-7 text-center text-black">{user.displayName}'s Toys</h2>
             </div>
 
-            <div className="text-right w-11/12 mb-10">
+            <div className="text-right  w-11/12 mb-10">
                 <select onChange={handleAscending} className="select select-bordered max-w-xs">
                     <option disabled selected>Sort by Price</option>
                     <option >Ascending Order</option>

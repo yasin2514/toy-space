@@ -33,7 +33,7 @@ const AllToys = () => {
             <PageTitle title="AllToys" />
             <div className="text-center mb-10">
                 <div className="flex items-center justify-center w-full">
-                    <input onChange={(e) => setSearch(e.target.value)} type="search" placeholder="Enter toy name" className="input input-bordered w-full max-w-sm rounded-e-none" />
+                    <input onChange={(e) => setSearch(e.target.value)} type="search" placeholder="Enter toy name" className="input input-bordered lg:w-full max-w-sm rounded-e-none" />
                     <button onClick={handleSearch} className="btn rounded-s-none">Search</button>
                 </div>
 
