@@ -31,7 +31,7 @@ const Review = () => {
                         </span>
                     </div>
                     <div className="text-center mt-5">
-                        <p>If a dog chews shoes whose shoes does he choose? Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel non hic aperiam necessitatibus quo adipisci, dolore tempore reprehenderit dolores exercitationem.</ p>
+                        <p>IToySpace.it exceeded my expectations with their wide selection of car toys. The quality and attention to detail are impressive. My kids couldn't be happier! Highly recommend.</ p>
                     </div>
                 </div>
                 {/* client -2 */}
@@ -49,7 +49,7 @@ const Review = () => {
                         </span>
                     </div>
                     <div className="text-center mt-5">
-                        <p>If a dog chews shoes whose shoes does he choose? Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel non hic aperiam necessitatibus quo adipisci, dolore tempore reprehenderit dolores exercitationem.</ p>
+                        <p>ToySpace.it exceeded my expectations with their wide selection of car toys. The quality and attention to detail are impressive. My kids couldn't be happier! Highly recommend.</ p>
                     </div>
                 </div>
                 {/* client -3 */}
@@ -67,7 +67,7 @@ const Review = () => {
                         </span>
                     </div>
                     <div className="text-center mt-5">
-                        <p>If a dog chews shoes whose shoes does he choose? Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel non hic aperiam necessitatibus quo adipisci, dolore tempore reprehenderit dolores exercitationem.</ p>
+                        <p>ToySpace.it exceeded my expectations with their wide selection of car toys. The quality and attention to detail are impressive. My kids couldn't be happier! Highly recommend.</ p>
                     </div>
                 </div>
             </div>
