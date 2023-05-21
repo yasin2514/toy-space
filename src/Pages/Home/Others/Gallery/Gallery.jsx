@@ -3,7 +3,6 @@ import LazyLoad from 'react-lazy-load';
 import AOS from 'aos';
 
 const Gallery = () => {
-
     const [cars, setCars] = useState();
     const url = 'https://toy-marketplace-server-plum.vercel.app/gallery'
     useEffect(() => {
@@ -15,12 +14,13 @@ const Gallery = () => {
     return (
         <div data-aos="fade-right"
             data-aos-duration="1000"
-            className="px-20 my-24">
+            className="px-5 lg:px-20 my-24">
             <div className="mb-10 text-center">
-                <h2 className="text-5xl font-bold text-black ">Gallery for Our shop</h2>
-                <p className="mt-2 text-gray-900">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non, nobis! Magnam animi, nam distinctio incidunt <br /> accusantium aliquam! Non, voluptatum repellendus.</p>
+                <h2 className="text-5xl font-bold text-black mb-3">Toys Gallery</h2>
+                <p className="text-red-600 text-2xl">Top Collection</p>
+
             </div>
-            <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
+            <div className="grid sm:grid-cols-1 md:grid-cols-3 px-3 md:px-0 lg:grid-cols-5 gap-5">
                 {
                     cars && cars.map(car => (
                         <div className="shadow bg-gray-200 rounded-lg relative hover:scale-[1.12] duration-300"

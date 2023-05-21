@@ -16,7 +16,7 @@ const Review = () => {
                 <h2 className="text-5xl font-bold text-black ">What They Say</h2>
                 <p className="mt-3 text-red-600">CUSTOMER REVIEWS</p>
             </div>
-            <div className="mx-20 grid md:grid-cols-2 lg:grid-cols-3 gap-16 group">
+            <div className="mx-10 lg:mx-20 grid md:grid-cols-2 lg:grid-cols-3 gap-16 group">
                 {/* client -1 */}
                 <div className="bg-base-100 rounded-ss-[50px] rounded-ee-[50px]  shadow shadow-black p-8 
                 group-hover:blur-sm duration-500 hover:!blur-none group-hover:scale-[0.90] cursor-pointer hover:!scale-100">

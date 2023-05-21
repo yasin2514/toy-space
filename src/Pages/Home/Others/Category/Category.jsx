@@ -26,20 +26,20 @@ const Category = () => {
     return (
         <div data-aos="fade-left"
             data-aos-duration="3000">
-            <div className="px-20 my-24">
+            <div className="px-2 grid-cols-1 md:grid-cols-2 lg:lg:px-20 my-24">
                 <div className="mb-10 text-center">
-                    <h2 className="text-5xl font-bold text-black ">Category for Our Shop</h2>
+                    <h2 className="text-5xl font-bold text-black ">Toys Category</h2>
                 </div>
                 <div>
                     <Tabs className={" bg-opacity-90 bg-gray-200 rounded-xl"}>
-                        <TabList className={'tabs-boxed flex py-7 rounded-b-none bg-black bg-opacity-95  gap-10 justify-center'} onClick={handleClick}>
-                            <Tab className={'tab tab-lifted shadow shadow-white text-gray-600 text-xl font-bold'}> Mini Sports Car</Tab>
-                            <Tab className={'tab tab-lifted shadow shadow-white text-gray-600 text-xl font-bold'}> Mini Police Car</Tab>
-                            <Tab className={'tab tab-lifted shadow shadow-white text-gray-600 text-xl font-bold'}> Mini Truck</Tab>
+                        <TabList className={'tabs-boxed flex flex-wrap py-7 rounded-b-none bg-black bg-opacity-95 gap-2 lg:gap-10 justify-center'} onClick={handleClick}>
+                            <Tab className={'tab tab-lifted shadow shadow-white text-gray-600 md:text-xl font-bold'}> Mini Sports Car</Tab>
+                            <Tab className={'tab tab-lifted shadow shadow-white text-gray-600 md:text-xl font-bold'}> Mini Police Car</Tab>
+                            <Tab className={'tab tab-lifted shadow shadow-white text-gray-600 md:text-xl font-bold'}> Mini Truck</Tab>
                         </TabList>
 
                         <TabPanel>
-                            <div className='grid grid-cols-3 gap-20 px-20 py-16'>
+                            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20 px-6 lg:px-20 py-16'>
                                 {
                                     toys && toys.slice(0, 3).map(toy => (
                                         <Subcategory
@@ -51,7 +51,7 @@ const Category = () => {
                             </div>
                         </TabPanel>
                         <TabPanel>
-                            <div className='grid grid-cols-3 gap-20 px-20 py-16'>
+                            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20 px-6 lg:px-20 py-16'>
                                 {
                                     toys && toys.slice(0, 3).map(toy => (
                                         <Subcategory
@@ -63,7 +63,7 @@ const Category = () => {
                             </div>
                         </TabPanel>
                         <TabPanel>
-                            <div className='grid grid-cols-3 gap-20 px-20 py-16'>
+                            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20 px-6 lg:px-20 py-16'>
                                 {
                                     toys && toys.slice(0, 3).map(toy => (
                                         <Subcategory

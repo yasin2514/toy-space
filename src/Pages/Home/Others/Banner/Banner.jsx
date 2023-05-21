@@ -17,8 +17,9 @@ const Banner = () => {
                 <img src={img1} className="w-full" />
                 <div className="absolute h-full flex items-center bg-gradient-to-r from-[#151515]  to-[rgba(21, 21, 21, 0)]">
                     <div data-aos="zoom-in-right"
-                        data-aos-duration="1000" className='text-white space-y-7 ms-12   w-2/4 bg-black rounded-xl p-10 bg-opacity-50  '>
-                        <h2 className='text-6xl font-bold'>Affordable Price For All Sports CarToy</h2>
+                        data-aos-duration="1000" 
+                        className='text-white space-y-7 mx-5 md:mx-0 lg:ms-12 w-full   lg:w-2/4 bg-black rounded-xl p-10 bg-opacity-50  '>
+                        <h2 className='text-3xl lg:text-6xl font-bold'>Affordable Price For All Sports CarToy</h2>
                         <p className='font-semibold'>There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
                         <div>
                             <Link to={'/upcoming'} className="btn btn-error btn-outline mr-5">Discover More</Link>
@@ -39,8 +40,8 @@ const Banner = () => {
                 <img src={img2} className="w-full " />
                 <div className="absolute h-full flex items-center  bg-gradient-to-r from-[#151515]  to-[rgba(21, 21, 21, 0)]">
                     <div data-aos="zoom-in-right"
-                        data-aos-duration="1000" className='text-white space-y-7 ms-12  w-2/4 bg-black rounded-xl p-10 bg-opacity-50  '>
-                        <h2 className='text-6xl font-bold'>Affordable Price For Car Servicing</h2>
+                        data-aos-duration="1000" className='text-white space-y-7 mx-5 md:mx-0 lg:ms-12 w-full   lg:w-2/4 bg-black rounded-xl p-10 bg-opacity-50  '>
+                        <h2 className='text-3xl lg:text-6xl font-bold'>Affordable Price For Car Servicing</h2>
                         <p className='font-semibold'>There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
                         <div>
                             <Link to={'/upcoming'} className="btn btn-outline btn-error mr-5">Discover More</Link>
@@ -60,8 +61,8 @@ const Banner = () => {
                 <img src={img3} className="w-full " />
                 <div className="absolute h-full flex items-center  bg-gradient-to-r from-[#151515]  to-[rgba(21, 21, 21, 0)]">
                     <div data-aos="zoom-in-right"
-                        data-aos-duration="1000" className='text-white space-y-7 ms-12  w-2/4 bg-black rounded-xl p-10 bg-opacity-50  '>
-                        <h2 className='text-6xl font-bold'>Affordable Price For Car Servicing</h2>
+                        data-aos-duration="1000" className='text-white space-y-7 mx-5 md:mx-0 lg:ms-12 w-full   lg:w-2/4 bg-black rounded-xl p-10 bg-opacity-50  '>
+                        <h2 className='text-3xl lg:text-6xl font-bold'>Affordable Price For Car Servicing</h2>
                         <p className='font-semibold'>There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
                         <div>
                             <Link to={'/upcoming'} className="btn btn-error  btn-outline mr-5">Discover More</Link>
