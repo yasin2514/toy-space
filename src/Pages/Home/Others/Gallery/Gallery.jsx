@@ -1,15 +1,17 @@
 import { useEffect, useState } from "react";
+import LazyLoad from 'react-lazy-load';
 import AOS from 'aos';
 
 const Gallery = () => {
 
     const [cars, setCars] = useState();
+    const url = 'https://toy-marketplace-server-plum.vercel.app/gallery'
     useEffect(() => {
         AOS.init();
-        fetch('https://toy-marketplace-server-plum.vercel.app/gallery')
+        fetch(url)
             .then(res => res.json())
             .then(data => setCars(data))
-    }, [])
+    }, [url])
     return (
         <div data-aos="fade-right"
             data-aos-duration="1000"
@@ -23,7 +25,9 @@ const Gallery = () => {
                     cars && cars.map(car => (
                         <div className="shadow bg-gray-200 rounded-lg relative hover:scale-[1.12] duration-300"
                             key={car._id}>
-                            <img src={car.img} alt="" />
+                            <LazyLoad threshold={0.90}>
+                                <img src={car.img} alt="" />
+                            </LazyLoad>
                             <div className="absolute rounded-lg hover:overflow-hidden bg-black top-0 h-full w-full flex items-center justify-center opacity-0 hover:opacity-75 hover:ease-in duration-300 ">
                                 <p className="text-white text-2xl font-bold">{car.name}</p>
                             </div>

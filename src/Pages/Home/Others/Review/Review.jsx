@@ -2,9 +2,16 @@ import { Rating } from '@smastrom/react-rating';
 import img1 from '../../../../assets/client-1.png'
 import img2 from '../../../../assets/client-2.png'
 import img3 from '../../../../assets/client-3.png'
+import AOS from 'aos';
+import { useEffect } from 'react';
+
 const Review = () => {
+    useEffect(() => {
+        AOS.init();
+    }, [])
     return (
-        <div className="mb-24">
+        <div data-aos="fade-right"
+        data-aos-duration="3000" className="mb-24">
             <div className="mb-10 text-center">
                 <h2 className="text-5xl font-bold text-black ">What They Say</h2>
                 <p className="mt-3 text-red-600">CUSTOMER REVIEWS</p>
