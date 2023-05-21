@@ -21,7 +21,7 @@ const ViewDetails = () => {
                     <p className="text-gray-200"> <span className="font-medium text-white">Sub Category: </span>{category}</p>
                     <p className="text-gray-200"> <span className="font-medium text-white">Available Quantity: </span>{quantity}</p>
                     <span className="text-gray-200 flex items-center gap-2">Ratings:
-                        <Rating className="" style={{ maxWidth: 110 }}
+                        <Rating className="" style={{ maxWidth: 100 }}
                             value={rating} readOnly />
                     </span>
                 </div>
